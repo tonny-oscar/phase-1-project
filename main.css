@@ -1,7 +1,14 @@
 body{
-    background-color: blueviolet;
+    /* background-color: blueviolet; */
+    background-color: lightgray;
 }
 
 .container{
     padding-right: 15%;
+}
+
+.summary-section {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }

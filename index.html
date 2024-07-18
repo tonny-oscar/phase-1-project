@@ -11,39 +11,81 @@
 </head>
 <body>
     <h1 style="border: 0cap; text-align: center;padding: 0%;">BUDGET TRACKER</h1>
+    <br>
     <div id="container">
-        <div class="flex flex item-centre gap-4">
-            <div class="padding: 30%;">
-                <form>
-                 <label for="tbudget">TOTAL BUDGET:</label><br>
-                 <input type="number" id="tbudget" name="tbudget" value="20000 ksh"><br>
-                 <label for="pExpenses">PLANNED EXPENCES:</label><br>
-                 <input type="number" id="pExpenses" name="pExpenses" value="">
+        <!-- step 1: Display month: this can be a dropdown to allow user to switch different months-->
+        <div class="flex item-centre summary-section">
+            <div class="month-display">
+                <select>
+                    <option value="january">January</option>
+                    <option value="february">February</option>
+                    <option value="march">March</option>
+                    <option value="april">April</option>
+                    <option value="may">May</option>
+                    <option value="june">June</option>
+                    <option value="july" selected>July</option>
+                    <option value="august">August</option>
+                    <option value="september">September</option>
+                    <option value="october">October</option>
+                    <option value="november">November</option>
+                    <option value="december">December</option>
+                </select>                
+            </div>
+            <br>
+             <!-- step 2: Display income -->
+            <div class="income">
+                <p>
+                    Income : KES 50,000
+                </p>                
+            </div>
+              <!-- step 4: Show total value of expenses added -->
+            <br>
+            <div class="income">
+                <p>
+                    Total expenses : KES <span class="total-expense-display"></span>
+                </p>                
+            </div>
+            <!-- step 3: Show form for expenses -->
+
+            <div class="expenses-form">
+                <form id="expenseForm">
+                    <input 
+                        type="text" 
+                        placeholder="Item" 
+                        id="expenseItemInput" 
+                        name="expenseItemInput" 
+                        value="">
+                    <input 
+                        type="number" 
+                        placeholder="Amount" 
+                        id="expenseAmountInput" 
+                        name="expenseAmountInput" 
+                        value="">
+                        <button 
+                            type="button" 
+                            class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                            Submit
+                        </button>
                 </form>  
             </div>
-        </div>
-    <br>
-        <div>
-            <div class="container">
-                <input id="inputField" type="text" placeholder="add Budget"><button id="addBudget">Add-Budget</button>
-                <div class="addBudget" id="BudgetContainer">
-                    <p></p>
+                <div class="expense-list">
+                    <div id="main">
+                        <h1></h1>
+                        <p></p>
+                        <li></li>
+                    </div>
+                    <table class="table-auto">
+                        <thead>
+                            <tr>
+                                <th>Description</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody class="expense-list-table">
+                        </tbody>
+                    </table>
                 </div>
-            </div>
-            <div>
-
-            </div>
         </div>
-    </div>
-    <br>
-    <section class="h-screen pt-10">
-        <h3>Coment Section</h3>
-        <div class="container">
-           <input id="inputField" type="text" placeholder="coment here"><br>
-           <button id="addComent"><br>submit</button>
-           <div></div>
-        </div>
-    </section>
     <script src="./index.js"></script>
 </body>
 </html>

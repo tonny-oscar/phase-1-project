@@ -1,9 +1,24 @@
-[
-{
-    "id": "1",
-    "Budget": "food",
-    "Planned amount": "2000",
-    "Income source": "salary",
-    "Budget Amount": "5000"
-}
+{"expense"
+    :[
+    {
+        "id": "1",
+        "Name": "Rent",
+        "Amount": "13000",
+        "Month": "July"
+    },
+    
+    {
+        "id": "2",
+        "Name": "Rent",
+        "Amount": "13000",
+        "Month": "July"
+    },
+
+    {
+        "id": "3",
+        "Name": "Rent",
+        "Amount": "13000",
+        "Month": "July"
+    }
 ]
+}
