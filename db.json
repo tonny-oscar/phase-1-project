@@ -1,6 +1,9 @@
 [
 {
     "id": "1",
-    "name": "Tonny"
+    "Budget": "food",
+    "Planned amount": "2000",
+    "Income source": "salary",
+    "Budget Amount": "5000"
 }
 ]

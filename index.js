@@ -2,9 +2,13 @@ let addBudgetButton = document.getElementById('addBudget');
 let BudgetContainer = document.getElementById('BudgetContainer');
 let inputField = document.getElementById('inputField');
 
-fetch("http://localhost:3000/0")
-    .then
-
+function fetchData(){
+    fetchData("http://localhost:3000/0")
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data);
+    });
+}
 addBudgetButton.addEventListener('click',function(){
     var paragraph=document.createElement('p');
 

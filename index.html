@@ -5,20 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Budget Tracker</title>
     <link rel="stylesheet" href="./main.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
     <h1 style="border: 0cap; text-align: center;padding: 0%;">BUDGET TRACKER</h1>
     <div id="container">
-        <div class="container">
-            <div>
-                <h2>TOTAL BUDGET</h2>
-                <P id="demo"><span style="background-color: red;">0 KSH</span></P>
-            </div>
-            <div>
-                <h2>PLANNED EXPENSES</h2>
-                <P id="demo"><span style="background-color: red;">0 KSH</span></P>
+        <div class="flex flex item-centre gap-4">
+            <div class="padding: 30%;">
+                <form>
+                 <label for="tbudget">TOTAL BUDGET:</label><br>
+                 <input type="number" id="tbudget" name="tbudget" value="20000 ksh"><br>
+                 <label for="pExpenses">PLANNED EXPENCES:</label><br>
+                 <input type="number" id="pExpenses" name="pExpenses" value="">
+                </form>  
             </div>
         </div>
+    <br>
         <div>
             <div class="container">
                 <input id="inputField" type="text" placeholder="add Budget"><button id="addBudget">Add-Budget</button>
@@ -27,14 +31,15 @@
                 </div>
             </div>
             <div>
-                
+
             </div>
         </div>
     </div>
-    <section>
+    <br>
+    <section class="h-screen pt-10">
         <h3>Coment Section</h3>
         <div class="container">
-           <input id="inputField" type="text" placeholder="coment here">
+           <input id="inputField" type="text" placeholder="coment here"><br>
            <button id="addComent"><br>submit</button>
            <div></div>
         </div>
