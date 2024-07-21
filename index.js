@@ -8,9 +8,7 @@ const expenseAmountInput = document.getElementById('expenseAmountInput');
 const incomeInput = document.getElementById('income-input');
 
 let expenseItems = [
-    { id: 1, name: 'Rent', amount: 0, month: 'July' },
-    { id: 2, name: 'Groceries', amount: 0, month: 'July' },
-    { id: 3, name: 'Shopping', amount: 0, month: 'July' }
+    
 ];
 
 //  it calculate and display total expenses
