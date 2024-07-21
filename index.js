@@ -1,36 +1,86 @@
-const income = 50000;
-let totalExpenses = 0;
+let income = 50000;
 
-let expenseListTable = document.getElementsByClassName('expense-list-table')[0];
-let totalExpenseDisplay = document.getElementsByClassName('total-expense-display')[0];
+const expenseListTable = document.querySelector('.expense-list-table');
+const totalExpenseDisplay = document.querySelector('.total-expense-display');
+const expenseForm = document.getElementById('expenseForm');
+const expenseItemInput = document.getElementById('expenseItemInput');
+const expenseAmountInput = document.getElementById('expenseAmountInput');
+const incomeInput = document.getElementById('income-input');
 
-const expenseItems = [
-    { id: 1, name: 'Rent', amount: 13000, month: 'July' },
-    { id: 2, name: 'Groceries', amount: 5000, month: 'July' },
-    { id: 3, name: 'Shopping', amount: 3500, month: 'July' }
+let expenseItems = [
+    { id: 1, name: 'Rent', amount: 0, month: 'July' },
+    { id: 2, name: 'Groceries', amount: 0, month: 'July' },
+    { id: 3, name: 'Shopping', amount: 0, month: 'July' }
 ];
 
-console.log('before calculating...')
-expenseItems.forEach(item=>{
-    console.log('calculating...')
-    return totalExpenses += item.amount;
-});
-console.log('after calculating...')
-totalExpenseDisplay.innerHTML = totalExpenses;
-console.log('after display calculating...', expenseListTable)
+//  it calculate and display total expenses
+function calculateTotalExpenses() {
+    const totalExpenses = expenseItems.reduce((total, item) => total + item.amount, 0);
+    totalExpenseDisplay.textContent = totalExpenses.toLocaleString('en-US', { style: 'currency', currency: 'KES' });
+}
 
-const tableRows = expenseItems.map(item => {
-    return `
+// Function to render the expense list table
+function renderExpenseTable() {
+    const tableRows = expenseItems.map(item => {
+        return `
+            <tr>
+                <td>${item.name}</td>
+                <td>${item.amount.toLocaleString('en-US', { style: 'currency', currency: 'KES' })}</td>
+            </tr>
+        `;
+    });
+    expenseListTable.innerHTML = `
         <tr>
-            <td>${item.name}</td>
-            <td>${item.amount}</td>
+            <th class="py-3 px-6 text-left">Description</th>
+            <th class="py-3 px-6 text-left">Amount</th>
         </tr>
+        ${tableRows.join('')}
     `;
+}
+
+function updateIncome(newIncome) {
+    income = newIncome;
+    calculateTotalExpenses();
+}
+
+//form submission (adding new expense)
+document.getElementById('Submitbtn').addEventListener('click', function(event) {
+    event.preventDefault();
+
+    // Fetch form values
+    const itemName = expenseItemInput.value.trim();
+    const itemAmount = parseFloat(expenseAmountInput.value);
+    
+    if (!itemName || isNaN(itemAmount) || itemAmount <= 0) {
+        alert('Please enter a valid item name and amount.');
+        return;
+    }
+
+    //new expense object
+    const newExpense = {
+        id: expenseItems.length + 1,
+        name: itemName,
+        amount: itemAmount,
+        month: document.getElementById('month-select').value // Assuming you have a month select input
+    };
+    expenseItems.push(newExpense);
+    renderExpenseTable();
+    calculateTotalExpenses();
+
+    // Clear form
+    expenseItemInput.value = '';
+    expenseAmountInput.value = '';
 });
-expenseListTable.innerHTML = tableRows.join('');
 
-
-// Add event handler for form submission
-// When user submits an item, get the inputs (desc, amount, month )
-// Update kwa DB, ama kwa expenseItems array
- 
+//changing income
+incomeInput.addEventListener('change', function() {
+    const newIncome = parseFloat(incomeInput.value);
+    if (!isNaN(newIncome) && newIncome >= 0) {
+        updateIncome(newIncome);
+    } else {
+        alert('Please enter a valid income amount.');
+    }
+});
+// rendering
+renderExpenseTable();
+calculateTotalExpenses();

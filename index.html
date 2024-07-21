@@ -31,24 +31,24 @@
                     <option value="december">December</option>
                 </select>
             </div>
-            <!-- Income display -->
+
             <div class="w-1/2 text-right">
-                <p class="text-lg font-semibold">Income: KES 50,000</p>
+                <label for="income-input" class="block text-sm font-medium text-gray-700">Income:</label>
+                <input type="number" id="income-input" name="income-input" value="50000" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
             </div>
         </div>
-        <!-- Expense form -->
+
         <div class="mb-4">
             <form id="expenseForm" class="flex items-center">
                 <input type="text" placeholder="Item" id="expenseItemInput" name="expenseItemInput" class="py-2 px-3 border border-gray-300 rounded-md mr-2">
                 <input type="number" placeholder="Amount" id="expenseAmountInput" name="expenseAmountInput" class="py-2 px-3 border border-gray-300 rounded-md mr-2">
-                <button type="button" class="py-2 px-4 bg-white border border-gray-300 rounded-md text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200">Submit</button>
+                <button type="button" id="Submitbtn" class="py-2 px-4 bg-white border border-gray-300 rounded-md text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200">Submit</button>
             </form>
         </div>
-        <!-- Total expenses display -->
+     
         <div class="mb-4">
             <p class="text-lg font-semibold">Total expenses: KES <span class="total-expense-display">0</span></p>
         </div>
-        <!-- Expense list -->
         <div class="expense-list w-full flex justify-center">
             <table class="min-w-full bg-white rounded-lg overflow-hidden">
                 <thead class="bg-gray-100 text-gray-800 uppercase text-sm leading-normal">
@@ -58,7 +58,6 @@
                     </tr>
                 </thead>
                 <tbody class="expense-list-table">
-                    <!-- Populate dynamically with JavaScript -->
                 </tbody>
             </table>
         </div>
