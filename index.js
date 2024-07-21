@@ -16,8 +16,6 @@ function calculateTotalExpenses() {
     const totalExpenses = expenseItems.reduce((total, item) => total + item.amount, 0);
     totalExpenseDisplay.textContent = totalExpenses.toLocaleString('en-US', { style: 'currency', currency: 'KES' });
 }
-
-// Function to render the expense list table
 function renderExpenseTable() {
     const tableRows = expenseItems.map(item => {
         return `
@@ -35,13 +33,10 @@ function renderExpenseTable() {
         ${tableRows.join('')}
     `;
 }
-
 function updateIncome(newIncome) {
     income = newIncome;
     calculateTotalExpenses();
 }
-
-//form submission (adding new expense)
 document.getElementById('Submitbtn').addEventListener('click', function(event) {
     event.preventDefault();
 
@@ -54,7 +49,6 @@ document.getElementById('Submitbtn').addEventListener('click', function(event) {
         return;
     }
 
-    //new expense object
     const newExpense = {
         id: expenseItems.length + 1,
         name: itemName,
@@ -79,6 +73,6 @@ incomeInput.addEventListener('change', function() {
         alert('Please enter a valid income amount.');
     }
 });
-// rendering
+
 renderExpenseTable();
 calculateTotalExpenses();
